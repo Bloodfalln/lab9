@@ -9,14 +9,14 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiService {
-    // Оновлений метод для отримання 50 постів
+    // Отримуємо всі пости без обмеження
     @GET("posts")
-    suspend fun getPosts(@Query("_limit") limit: Int): Response<List<Post>>
+    suspend fun getPosts(): Response<List<Post>>  // Змінено: без параметра _limit
 
-    // Оновлений метод для отримання одного поста за ID
     @GET("posts/{id}")
     suspend fun getPost(@Path("id") postId: Int): Response<Post>
 }
+
 
 object RetrofitClient {
     private const val BASE_URL = "https://jsonplaceholder.typicode.com/"
