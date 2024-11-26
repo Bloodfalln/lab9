@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.lab9">
+
+    <!-- Дозвіл на доступ до Інтернету -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Дозвіл на доступ до мережі для перевірки з'єднання -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Lab9">
+
+        <!-- MainActivity (з intent-filter) - має бути експортована -->
+        <activity
+            android:name=".ui.MainActivity"
+            android:label="Main Activity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+            android:exported="true"> <!-- Встановлюємо exported в true для Launcher Activity -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- PostDetailsActivity - не експортована, так як це внутрішня активність -->
+        <activity
+            android:name=".ui.PostDetailsActivity"
+            android:exported="false" /> <!-- Встановлюємо exported в false -->
+
+    </application>
+
+</manifest>
